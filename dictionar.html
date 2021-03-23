@@ -46,29 +46,26 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
 
     <script>
-	var list = [], i = 0;
-      	function add() {
-	        var word = document.getElementById("addWord").value; 
-	        list[i++] = word;
-	        word = "";
-	      	document.getElementById("addWord").value = ""; 
-	        return false;
-      	}
-      	function search() {
-      		var word = document.getElementById("searchWord").value;
-      		for (var j = 0; j < list.length; ++j) {
-      			if (list[j] == word) {
-      				alert("The word already exists in the dictionary!");
-      				word = "";
-      				document.getElementById("searchWord").value = "";
-      				return false;
-      			}
-      		}
-      		alert("The word does NOT exist in the dictionary!");
-      		word = "";
-      		document.getElementById("searchWord").value = "";
-      		return false;
-      	}
+    var list = [];
+    function add() {
+      var word = document.getElementById("addWord").value;
+      list.push(word);
+      alert("Your word was successfully added to the dictionary!"); 
+      word = "";
+      document.getElementById("addWord").value = ""; 
+      return false;
+    }
+    function search() {
+      var word = document.getElementById("searchWord").value;
+      if (list.indexOf(word) === -1) {
+        alert("The word does NOT exist in the dictionary!");
+      } else {
+        alert("The word already exists in the dictionary!");
+      }
+      word = "";
+      document.getElementById("searchWord").value = "";
+      return false;
+    }
     </script>
   </body>
 </html>
